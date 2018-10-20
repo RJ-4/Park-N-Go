@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ParkNGo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<link rel="shortcut icon" href="images/favicon.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="stylesheet" href="css/ParkNGo.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+	
+</head>
+<body id="content" style="display: none;">
+	<!--application UI goes here-->
+	
+	
+
+<div style="background: url(images/back_1.jpg)" data-role="page" id="login"> 
+
+	<div data-role="header" >
+		<h1>LOGIN</h1>
+	</div>
+	<div data-role = "content">
+	  	<div class="main">
+	    	<div id="signIn">
+	    		<br><br><br><br><br><br>
+	      		<h1 style = "text-align: center;">Login here!</h1>
+	      		<br><br>
+	            <img onclick="loginUser()" src="images/google.png" alt="Google login" width = "300" height = "80">
+	    	</div>
+	    </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div data-role = "footer"></div>  
+</div>
+	
+<!-- ----------------------------------HOME PAGE--------------------------------------- -->	
+
+	<div style="background: url(images/back_1.jpg)" data-role="page" id="home"> 
+		<div data-role="header" >
+			<h1>PARK N GO</h1>
+		</div>
+		<div data-role="content">
+		 	<img border="0" src="images/images.jpg" width="300" height="200">
+		 	<br>
+		 	<div data-role="header" data-theme="a">
+		 		<marquee style="text-align: center;">NEW REGISTRATION</marquee>
+		 	</div>
+		 	<div data-role="content" data-theme="e">
+		 		<a href="#reg_page" data-role="button" data-transition="pop">
+					<img border="0" src="images/button 1.png" width="100" height="100">
+				</a>
+			</div>
+			<br>
+			<div data-role="header" data-theme="a">
+		 		<marquee style="text-align: center;">LOOK FOR OWNER</marquee>
+		 	</div>
+		 	<div data-role="content" data-theme="e">
+				<a href="#find_page" data-role="button" data-transition="pop">
+					<img border="0" src="images/button 2b.png" width="100" height="100">
+				</a>
+			</div>
+			<br>
+			<div data-role="header" data-theme="a">
+		 		<marquee style="text-align: center;">FIND PARKING</marquee>
+		 	</div>
+		 	<div data-role="content" data-theme="e">
+				<a href="#find_parking" data-role="button" data-transition="pop">
+					<img border="0" src="images/button 3b.png" width="100" height="100">
+				</a>
+			</div>
+		</div>
+		<div data-role="footer">
+			<div data-role="controlgroup" data-type="horizontal" align="center">
+				<a href="#more" data-role="button" data-transition="pop" data-theme="d">More</a>
+				<a onclick="logout()" data-role="button" data-transition="pop" data-theme="d">Logout</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- -----------------------REGISTRATION PAGE----------------------------------- -->
+	<div data-role="page" style="background: url(images/back7.jpg)" id="reg_page" data-add-back-btn=true>
+		
+		<div data-role="header" data-theme="b">
+			<h1>REGISTRATION</h1>
+		</div>
+		<br>
+		<marquee style="font: italic;font: bolder;color: black; text-align: center;">*All fields are mandatory</marquee>
+		<form id="add_details">
+			<div data-role="content" >
+				<input type="text" id="ownname" placeholder="Enter Owner's Name...">
+				<input type="text" id="ownmobile" placeholder="Enter Owner's Mobile Number...">
+				<input type="text" id="vno" placeholder="Enter Vehicle Number...">
+				<marquee style="font: italic;font: bolder;text-align: center;">(Include "-" for each space. Eg: DL-3B-ON-1234)</marquee>
+				<select name="man" id="man">
+					<option>Select Manufacturer</option>
+					<option>Acura</option>
+					<option>Alfa Romeo</option>
+					<option>Aston Martin</option>
+					<option>Audi</option>
+					<option>Bently</option>
+					<option>BMW</option>
+					<option>Alfa Romeo</option>
+					<option>Bugatti</option>
+					<option>Buick</option>
+					<option>Cadillac</option>
+					<option>Chevrolet</option>
+					<option>Chrysler</option>
+					<option>Citroen</option>
+					<option>Dodge</option>
+					<option>Ferrari</option>
+					<option>Fiat</option>
+					<option>Ford</option>
+					<option>Geely</option>
+					<option>General Motors</option>
+					<option>GMC</option>
+					<option>Honda</option>
+					<option>Hyundai</option>
+					<option>Infiniti</option>
+					<option>Jaguar</option>
+					<option>Jeep</option>
+					<option>Kia</option>
+					<option>Koenigsegg</option>
+					<option>Lamborghini</option>
+					<option>Land Rover</option>
+					<option>Lexus</option>
+					<option>Maserati</option>
+					<option>Mazda</option>
+					<option>McLaren</option>
+					<option>Mercedes-Benz</option>
+					<option>Mini</option>
+					<option>Mitsubishi</option>
+					<option>Nissan</option>
+					<option>Pagani</option>
+					<option>Peugeot</option>
+					<option>Porsche</option>
+					<option>Ram</option>
+					<option>Renault</option>
+					<option>Rolls Royce</option>
+					<option>Saab</option>
+					<option>Subaru</option>
+					<option>Suzuki</option>
+					<option>Tata Motors</option>
+					<option>Tesla</option>
+					<option>Toyota</option>
+					<option>Volkswagen</option>
+					<option>Volvo</option>
+				</select>
+				<input type="text" id="model"placeholder="Enter Model of the Vehicle...">
+				<input type="text" id="col" placeholder="Enter Color of the Vehicle...">
+				<input type="text" id="manyear" placeholder="Enter Manufacturing Year...">
+				<select name="fuel" id="fuel">
+					<option>Select Fuel Type of Vehicle</option>					
+					<option>Petrol</option>
+					<option>Diesel</option>
+					<option>CNG</option>
+				</select>
+				<br><div data-role="controlgroup" data-type="horizontal" align="center">
+					<input type="button" value="Submit" onclick="reg()">
+					<input type="reset" value="Reset">
+					</div>
+				<br><br><br><br><br><br><br>
+			</div>
+		</form>
+		<div data-role="footer" data-theme="b"></div>
+	</div>
+
+<!-- -------------------------------SEARCH PAGE-------------------------------------------- -->
+	<div data-role="page" id="find_page" style="background:url(images/back7.jpg)" data-add-back-btn="true">
+		<div data-role="header" data-theme="b">
+			<h1>SHOW DETAILS</h1>
+		</div>
+		<div data-role="content">
+			<input type="text" id="searching" placeholder="Enter Registration No....">
+			<br>
+			<div data-role="controlgroup" data-type="horizontal"align="center">
+				<input type="button" value="Search" onclick=search1()>
+			</div>
+			<table>
+				<tbody>
+					<tr>
+						<td id="on1"></td>
+						<td id="on"></td>
+					</tr>
+					<tr>
+						<td id="mn1"></td>
+						<td id="mn"></td>
+					</tr>
+					<tr>
+						<td id="rn1"></td>
+						<td id="rn"></td>
+					</tr>
+					<tr>
+						<td id="mr1"></td>
+						<td id="mr"></td>
+					</tr>
+					<tr>
+						<td id="ml1"></td>
+						<td id="ml"></td>
+					</tr>
+					<tr>
+						<td id="cr1"></td>
+						<td id="cr"></td>
+					</tr>
+					<tr>
+						<td id="my1"></td>
+						<td id="my"></td>
+					</tr>
+					<tr>
+						<td id="ft1"></td>
+						<td id="ft"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<div data-role="footer" data-theme="b"></div>
+	</div>
+
+
+<!-- ------------------------------------PARKING PAGE------------------------------------------ -->
+	<div data-role="page" style="background:url(images/back7.jpg)"data-add-back-btn="true"id="find_parking">
+		<div data-role="header" data-theme="b">
+			<h1>LOCATION</h1>
+		</div>	
+		<div data-role="content">
+			<img border="0" src="images/parking.jpg" width="288" height="250">
+			<br><br>
+			<a href="https://www.google.co.in/maps/search/parking/@28.6928631,77.0913495,11z/data=!3m1!4b1" data-role="button" data-transition="pop" data-theme="b">Find Parking</a>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div>
+		<div data-role="footer" data-theme="b"></div>
+	</div>	
+	
+<!-- ----------------------------------- MORE PAGE ------------------------------------------------------ -->	
+	<div data-role="page" style="background:url(images/back5.jpg)"data-add-back-btn="true" id="more">
+		<div data-role="header" data-theme="b">
+			<h1>MORE OPTIONS</h1>
+		</div>
+		<div data-role="content">
+			<img border="0" src="images/more.jpeg" width="288" height="200">
+			<br><br>
+			<div data-theme="b">
+			<a href="#about" data-role="button" data-transition="pop" data-theme="d">
+				<img border="0" src="images/aboutusbutton.png" width="245" height="90">
+			</a>
+			</div>
+			<br>
+			<div data-theme="b">
+			<a href="#contact" data-role="button" data-transition="pop" data-theme="d" >
+				<img border="0" src="images/contactusbutton.jpg" width="245" height="80">
+			</a>
+			</div>
+		</div>
+	</div>
+	
+	
+<!-- ----------------------------------- ABOUT PAGE ------------------------------------------------------------- -->	
+	<div data-role="page" style="background:url(images/back7.jpg)"data-add-back-btn="true" id="about">
+		<div data-role="header" data-theme="b">
+			<h1>ABOUT</h1>
+		</div>
+		<div data-role="content">
+			<img border="0" src="images/aboutus.jpg" width="288" height="250">
+			<br><br>
+			<p style="text-align: justify; color:#002daf; font-size: medium; font-weight: bold;">
+			Park N Go is a hybrid mobile application which allows the user to search for the owner of the vehicle by entering the registration number of that vehicle. 
+			Park N Go has been developed on Eclipse IDE using IBM Worklight technogoly. Park N Go is structured by using HTML and CSS
+			and the back-end programming is exhibited by JavaScript. The database connectivity is established using Firebase. This app provides a feasible solution to the parking misconduct across the country.
+			</p>	
+		</div>
+	</div>
+
+<!-- ----------------------------------- QUERY PAGE --------------------------------------------------------------------- -->
+	<div data-role="page " style="background:url(images/back7.jpg)" data-add-back-btn="true" id="contact">
+		<div data-role="header" data-theme="b">
+			<h1>CONTACT US</h1>
+		</div>
+		<div data-role="content">
+		<form>
+			Name: <input type="text" placeholder="Enter your Name..." id="contact_name">
+			<br>
+			Email Id: <input type="text" placeholder="Enter your Email Id..." id="contact_email">
+			<br>
+			Query: <input type="text"  placeholder="Enter your Query..." id="contact_query">
+			<br><br>
+			<div data-role="controlgroup" data-type="horizontal" align="center">		
+				<input type="button" value="Submit" onclick="query_submit()">
+				<input type="reset" value="Reset">
+			</div>
+		</form>
+		</div>
+	</div>
+<!-- ------------------------------------------------------------------------------------------------------------------- -->	
+	
+	<script src="js/initOptions.js"></script>
+	<script src="js/ParkNGo.js"></script>
+	<script src="js/messages.js"></script>
+</body>
+</html>
