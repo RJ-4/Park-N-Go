@@ -2,12 +2,12 @@
 ( function () {
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDJeG9vtrdD1pa4yt3Oran_35__5oTM2o0",
-  authDomain: "parkngo-b641a.firebaseapp.com",
-  databaseURL: "https://parkngo-b641a.firebaseio.com",
-  projectId: "parkngo-b641a",
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
   storageBucket: "",
-  messagingSenderId: "941099461969"
+  messagingSenderId: ""
 };
 firebase.initializeApp(config);
 } ());
